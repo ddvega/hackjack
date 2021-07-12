@@ -7,4 +7,3 @@ export const LogoutButton = () => {
   return <button onClick={() => logout({ returnTo: process.env.REACT_APP_REDIRECT })}>Log Out</button>;
 };
 
-// export default LogoutButton;

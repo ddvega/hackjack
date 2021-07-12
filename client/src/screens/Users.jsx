@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Test } from '../components/Test'
 import axios from 'axios'
 
 export const Users = () => {
@@ -17,7 +16,6 @@ export const Users = () => {
 
   return (
     <div>
-      <Test />
       <h1>Hello there my friend, {name}.</h1>
     </div>
   )
