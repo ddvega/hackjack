@@ -1,35 +1,35 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 export const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column",
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
   },
   logo: {
     color: theme.palette.primary.title,
   },
   margin: {
     marginLeft: theme.spacing(0),
-    boxDecorationBreak: "none",
+    boxDecorationBreak: 'none',
   },
   title: {
     flexGrow: 1,
-    paddingLeft: "1rem",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
+    paddingLeft: '1rem',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
     },
     color: theme.palette.primary.title,
   },
 
   topLinks: {
     flexGrow: 1,
-    display: "none",
+    display: 'none',
 
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
     },
     color: theme.palette.primary.title,
   },
@@ -43,7 +43,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -53,7 +53,7 @@ export const useStyles = makeStyles((theme) => ({
   appBarShift: {
     marginright: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -63,27 +63,27 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(0.4),
   },
   menuButtonHidden: {
-    display: "none",
+    display: 'none',
   },
   menuIcon: {
     color: theme.palette.primary.title,
   },
   drawerPaper: {
-    whiteSpace: "nowrap",
+    whiteSpace: 'nowrap',
     width: drawerWidth,
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerPaperClose: {
-    overflowX: "hidden",
-    transition: theme.transitions.create("width", {
+    overflowX: 'hidden',
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     width: theme.spacing(7),
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       width: theme.spacing(9),
     },
   },
@@ -91,10 +91,10 @@ export const useStyles = makeStyles((theme) => ({
     paddingRight: 14,
   },
   toolbarIcon: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: "0 8px",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: '0 8px',
     ...theme.mixins.toolbar,
   },
 }));

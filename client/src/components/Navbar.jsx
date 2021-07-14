@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import IconButton from "@material-ui/core/IconButton";
-import Toolbar from "@material-ui/core/Toolbar";
-import Drawer from "@material-ui/core/Drawer";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import CreateIcon from "@material-ui/icons/Create";
-import MenuIcon from "@material-ui/icons/Menu";
-import clsx from "clsx";
-import { Link } from "react-router-dom";
-import { Grid } from "@material-ui/core";
-import logo from "../icons/bj.png";
-import { useAuth0 } from "@auth0/auth0-react";
+import React, { useState } from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import IconButton from '@material-ui/core/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
+import Drawer from '@material-ui/core/Drawer';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import CreateIcon from '@material-ui/icons/Create';
+import MenuIcon from '@material-ui/icons/Menu';
+import clsx from 'clsx';
+import { Link } from 'react-router-dom';
+import { Grid } from '@material-ui/core';
+import { useAuth0 } from '@auth0/auth0-react';
+import logo from '../icons/bj.png';
 
-import { Navlist } from "./Navlist";
-import { useStyles } from "../styles/navbarStyles";
+import { Navlist } from './Navlist';
+import { useStyles } from '../styles/navbarStyles';
 // import { useAuth } from '../store/users/AuthContext';
 
 export const Navbar = () => {
@@ -38,29 +38,54 @@ export const Navbar = () => {
   };
 
   const itemsCommon = [
-    { id: "0", route: "/", icon: <VisibilityIcon />, text: "Browse" },
+    {
+      id: '0',
+      route: '/',
+      icon: <VisibilityIcon />,
+      text: 'Browse',
+    },
   ];
 
   const itemsLoggedIn = [
     {
-      id: "1",
-      route: "/account",
+      id: '1',
+      route: '/account',
       icon: <AccountCircleIcon />,
-      text: "Log Out",
+      text: 'Log Out',
     },
-    { id: "2", route: "/profile", icon: <LockOpenIcon />, text: "Profile" },
-    { id: "3", route: "/", icon: <CreateIcon />, text: "Create" },
+    {
+      id: '2',
+      route: '/profile',
+      icon: <LockOpenIcon />,
+      text: 'Profile',
+    },
+    {
+      id: '3',
+      route: '/',
+      icon: <CreateIcon />,
+      text: 'Create',
+    },
     ...itemsCommon,
   ];
 
   const itemsLoggedOut = [
-    { id: "4", route: "/account", icon: <PersonAddIcon />, text: "Sign Up" },
-    { id: "5", route: "/account", icon: <AccountCircleIcon />, text: "Log In" },
     {
-      id: "6",
-      route: "/account",
+      id: '4',
+      route: '/account',
+      icon: <PersonAddIcon />,
+      text: 'Sign Up',
+    },
+    {
+      id: '5',
+      route: '/account',
+      icon: <AccountCircleIcon />,
+      text: 'Log In',
+    },
+    {
+      id: '6',
+      route: '/account',
       icon: <LockOpenIcon />,
-      text: "Reset Password",
+      text: 'Reset Password',
     },
 
     ...itemsCommon,
@@ -75,58 +100,21 @@ export const Navbar = () => {
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar className={classes.toolbar}>
-          <Link to="/" style={{ paddingLeft: "1rem" }}>
+          <Link to="/" style={{ paddingLeft: '1rem' }}>
             <img src={logo} alt="" style={{ height: 50, width: 50 }} />
           </Link>
           <Typography className={classes.title} variant="h4" noWrap>
             HackJack
           </Typography>
 
-          {isAuthenticated
-            ? itemsLoggedIn.map((field) => (
-                <Typography key={field.id} className={classes.topLinks} noWrap>
-                  <Link to={field.route} className={classes.topLinksColor}>
-                    <Grid container>
-                      <Grid item xs={2}>
-                        {field.icon}
-                      </Grid>
-                      <Grid item xs={4} style={{ paddingTop: "1px" }}>
-                        {` ${field.text}`}
-                      </Grid>
-                    </Grid>
-                  </Link>
-                </Typography>
-              ))
-            : itemsLoggedOut.map((field) => (
-                <Typography key={field.id} className={classes.topLinks} noWrap>
-                  <Link to={field.route} className={classes.topLinksColor}>
-                    <Grid container>
-                      <Grid item xs={2}>
-                        {field.icon}
-                      </Grid>
-                      <Grid item xs={4} style={{ paddingTop: "1px" }}>
-                        {` ${field.text}`}
-                      </Grid>
-                    </Grid>
-                  </Link>
-                </Typography>
-              ))}
-
           <IconButton
             edge="end"
             color="inherit"
             aria-label="open drawer"
             onClick={drawerOpen}
-            className={clsx(
-              classes.menuButton,
-              open && classes.menuButtonHidden
-            )}
+            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
           >
-            <MenuIcon
-              className={classes.MenuIcon}
-              fontSize="large"
-              transform="scale(1.25)"
-            />
+            <MenuIcon className={classes.MenuIcon} fontSize="large" transform="scale(1.25)" />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -135,11 +123,7 @@ export const Navbar = () => {
         anchor="right"
         variant="temporary"
         classes={{
-          paper: clsx(
-            "navbar",
-            classes.drawerPaper,
-            !open && classes.drawerPaperClose
-          ),
+          paper: clsx('navbar', classes.drawerPaper, !open && classes.drawerPaperClose),
         }}
         open={open}
       >

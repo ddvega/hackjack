@@ -1,9 +1,9 @@
-import { createTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles';
 
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#009900', // navbar background color 
+      main: '#009900', // navbar background color
       title: '#000000', // navbar title color
     },
     background: {
