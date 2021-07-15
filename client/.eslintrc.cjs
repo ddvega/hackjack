@@ -27,6 +27,8 @@ module.exports = {
     'react/require-default-props': 'off',
     'import/no-extraneous-dependencies': 0,
     'react/jsx-one-expression-per-line': 0,
+    'object-curly-newline': 0,
+    'react/jsx-wrap-multilines': 0,
   },
   parser: 'babel-eslint',
 };

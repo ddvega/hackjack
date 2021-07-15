@@ -40,9 +40,9 @@ export const Navbar = () => {
   const itemsCommon = [
     {
       id: '0',
-      route: '/',
+      route: '/settings',
       icon: <VisibilityIcon />,
-      text: 'Browse',
+      text: 'Start Training',
     },
   ];
 
