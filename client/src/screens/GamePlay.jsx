@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Box, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
+// import { useGame } from '../store/GameProvider';
+import { useUser } from '../store/UserProvider';
 import { useStyles } from '../styles/useStyles';
+import { Settings } from '../components/Settings';
 
 export const GamePlay = () => {
   const classes = useStyles();
+  // const { gameID } = useGame();
+  // const { gameID } = useUser();
+  const [gameID, setGameID] = useState();
   const [dealerHand, setDealerHand] = useState([]);
-  const [showButton, setShowButton] = useState(1);
-  const [player1Hand, setPlayer1Hand] = useState(0);
-  const [player2Hand, setPlayer2Hand] = useState(0);
+  // const [player1Hand, setPlayer1Hand] = useState(0);
+  // const [player2Hand, setPlayer2Hand] = useState(0);
+  // const [gameID, setGameID] = useState(null);
   const [dealt, setDealt] = useState(false);
+  const [settingsMenu, setSettingsMenu] = useState(true);
 
   const deal = async () => {
-    setShowButton(0);
-    setDealt(false);
+    // setDealt(false);
     try {
       // deck id needs to be retrieved from session not hard coded
-
-      const cards = await axios.get('http://localhost:5000/deck/s6oqjq7c8t7q/draw/?count=2');
+      console.log(gameID);
+      const cards = await axios.get(`http://localhost:5000/deck/${gameID}/draw/?count=2`);
       setDealerHand(cards.data);
       setShowButton(1);
     } catch (error) {
@@ -32,15 +38,23 @@ export const GamePlay = () => {
     }
   }, [dealerHand]);
 
+<<<<<<< HEAD
   const buttonLoad = () => {
     if (showButton) {
       return (<Button variant="contained" color="primary" onClick={deal}>Deal</Button>);
     }
     return <CircularProgress />;
   };
+=======
+  useEffect(() => {
+    console.log(gameID);
+  }, [gameID]);
+>>>>>>> 204cdc89ca075a080a9fc672267e8ec404acb68e
 
   return (
     <div className={classes.paper2}>
+      {settingsMenu && <Settings setGameID={setGameID} setSettingsMenu={setSettingsMenu} />}
+
       {!dealt ? null : (
         <>
           <Box display="flex" flexDirection="row" alignContent="center" alignItems="center" justify="center">

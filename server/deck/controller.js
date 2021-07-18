@@ -6,6 +6,7 @@ export const initalizeDeck = async (query) => {
   const deck = await axios.get(
     `http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=${deck_count}`,
   );
+  console.log(deck.data);
   return deck.data;
 };
 
