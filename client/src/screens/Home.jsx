@@ -15,7 +15,7 @@ export const Home = () => {
         <div className={classes.paper}>
           <br />
           {isAuthenticated ? (
-            <Button variant="contained" color="primary" href="/settings">
+            <Button variant="contained" color="primary" href="/gameplay">
               Start Training
             </Button>
           ) : (

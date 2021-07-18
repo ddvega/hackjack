@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   FormGroup,
   FormControlLabel,
@@ -9,16 +10,21 @@ import {
   MenuItem,
   Button,
 } from '@material-ui/core';
+import axios from 'axios';
 import { useStyles } from '../styles/useStyles';
+// import { useGame } from '../store/GameProvider';
+import { useUser } from '../store/UserProvider';
 
-export const Settings = () => {
+export const Settings = (props) => {
+  // const { deckCount, setDeckCount, setGameID, gameID, setRefresh, newGame } = useGame();
+  // const { gameID } = useUser();
+  const [count, setCount] = useState(null);
   const [state, setState] = useState({
     checkedA: true,
     checkedB: true,
     checkedC: true,
     checkedD: true,
   });
-  const [age, setAge] = useState('');
 
   const classes = useStyles();
 
@@ -27,8 +33,29 @@ export const Settings = () => {
   };
 
   const handleChange2 = (event) => {
-    setAge(event.target.value);
+    // setRefresh(Math.random());
+    // setDeckCount(event.target.value);
+    // setRefresh(Math.random());
+    setCount(event.target.value);
+    console.log(`local_count=${count}`);
   };
+
+  const newGame = async () => {
+    console.log(count);
+    const newID = await axios.get(`http://localhost:5000/deck/new/?deck_count=${count}`);
+    console.log(newID.data);
+    props.setGameID(newID.data.deck_id);
+    props.setSettingsMenu(false);
+    // setDeckCount(count);
+  };
+
+  // useEffect(async () => {
+  //   console.log(`deckcount=${deckCount}`);
+  //   const newID = await axios.get(`http://localhost:5000/deck/new/?deck_count=${deckCount}`);
+  //   console.log(newID.data);
+  //   setGameID(newID.data.deck_id);
+  //   console.log(gameID);
+  // }, [deckCount]);
 
   return (
     <>
@@ -80,12 +107,15 @@ export const Settings = () => {
                 <Select
                   labelId="demo-simple-select-filled-label"
                   id="demo-simple-select-filled"
-                  value={age}
+                  value={count}
                   onChange={handleChange2}
                 >
                   <MenuItem value={1}>1</MenuItem>
                   <MenuItem value={2}>2</MenuItem>
                   <MenuItem value={3}>3</MenuItem>
+                  <MenuItem value={4}>4</MenuItem>
+                  <MenuItem value={5}>5</MenuItem>
+                  <MenuItem value={6}>6</MenuItem>
                 </Select>
               }
               label="Number of Decks"
@@ -94,7 +124,7 @@ export const Settings = () => {
           </FormGroup>
           <br />
 
-          <Button variant="contained" color="primary" href="/gameplay">
+          <Button onClick={newGame} variant="contained" color="primary">
             Start Training
           </Button>
         </div>
