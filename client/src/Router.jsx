@@ -10,6 +10,7 @@ import { Navbar } from './components/Navbar';
 import { theme } from './styles/theme';
 import { Account } from './screens/Account';
 import { Settings } from './components/Settings';
+import { Chips } from './screens/Chips';
 import { GamePlay } from './screens/GamePlay';
 
 export const Router = () => {
@@ -18,17 +19,18 @@ export const Router = () => {
       <>
         <UserProvider>
           <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/users" component={Users} />
-              <Route path="/account" component={Account} />
-              <Route path="/settings" component={Settings} />
-              <Route path="/gameplay" component={GamePlay} />
-            </Switch>
-          </ThemeProvider>
-        </UserProvider>
+          <CssBaseline />
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/users" component={Users} />
+            <Route path="/account" component={Account} />
+            <Route path="/settings" component={Settings} />
+            <Route path="/chips" component={Chips} />
+            <Route path="/gameplay" component={GamePlay} />
+          </Switch>
+        </ThemeProvider>
+ </UserProvider>
       </>
     </BrowserRouter>
   );
