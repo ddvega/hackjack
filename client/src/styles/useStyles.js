@@ -77,9 +77,10 @@ export const useStyles = () => {
       flexDirection: 'column',
     },
     paper2: {
-      marginTop: theme.spacing(10),
+      padding: theme.spacing(2),
       display: 'flex',
       flexDirection: 'column',
+      overflow: 'auto',
       alignItems: 'center',
     },
 

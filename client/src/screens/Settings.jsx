@@ -94,7 +94,7 @@ export const Settings = () => {
           </FormGroup>
           <br />
 
-          <Button variant="contained" color="primary" href="/users">
+          <Button variant="contained" color="primary" href="/gameplay">
             Start Training
           </Button>
         </div>
