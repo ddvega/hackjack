@@ -8,6 +8,7 @@ import { Navbar } from './components/Navbar';
 import { theme } from './styles/theme';
 import { Account } from './screens/Account';
 import { Settings } from './screens/Settings';
+import { GamePlay } from './screens/GamePlay';
 
 export const Router = () => {
   return (
@@ -21,6 +22,7 @@ export const Router = () => {
             <Route path="/users" component={Users} />
             <Route path="/account" component={Account} />
             <Route path="/settings" component={Settings} />
+            <Route path="/gameplay" component={GamePlay} />
           </Switch>
         </ThemeProvider>
       </>
