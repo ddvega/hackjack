@@ -9,15 +9,12 @@ export const GamePlay = () => {
   const [gameID, setGameID] = useState();
   const [dealerHand, setDealerHand] = useState([]);
   const [dealt, setDealt] = useState(false);
-  const [settingsMenu, setSettingsMenu] = useState(true);
+  const [showButton, setShowButton] = useState(false);
 
   const deal = async () => {
-    // setDealt(false);
     try {
-      console.log(gameID);
       const cards = await axios.get(`http://localhost:5000/deck/${gameID}/draw/?count=2`);
       setDealerHand(cards.data);
-      setShowButton(1);
     } catch (error) {
       console.log(error);
     }
@@ -30,22 +27,20 @@ export const GamePlay = () => {
     }
   }, [dealerHand]);
 
-<<<<<<< HEAD
   const buttonLoad = () => {
     if (showButton) {
-      return (<Button variant="contained" color="primary" onClick={deal}>Deal</Button>);
+      return (
+        <Button variant="contained" color="primary" onClick={deal}>
+          Deal
+        </Button>
+      );
     }
     return <CircularProgress />;
   };
-=======
-  useEffect(() => {
-    console.log(gameID);
-  }, [gameID]);
->>>>>>> 204cdc89ca075a080a9fc672267e8ec404acb68e
 
   return (
     <div className={classes.paper2}>
-      {settingsMenu && <Settings setGameID={setGameID} setSettingsMenu={setSettingsMenu} />}
+      {!showButton && <Settings setGameID={setGameID} setShowButton={setShowButton} />}
 
       {!dealt ? null : (
         <>

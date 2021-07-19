@@ -38,7 +38,7 @@ export const Settings = (props) => {
     const newID = await axios.get(`http://localhost:5000/deck/new/?deck_count=${count}`);
     console.log(newID.data);
     props.setGameID(newID.data.deck_id);
-    props.setSettingsMenu(false);
+    props.setShowButton(true);
   };
 
   return (
