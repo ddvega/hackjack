@@ -12,12 +12,8 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import { useStyles } from '../styles/useStyles';
-// import { useGame } from '../store/GameProvider';
-import { useUser } from '../store/UserProvider';
 
 export const Settings = (props) => {
-  // const { deckCount, setDeckCount, setGameID, gameID, setRefresh, newGame } = useGame();
-  // const { gameID } = useUser();
   const [count, setCount] = useState(null);
   const [state, setState] = useState({
     checkedA: true,
@@ -33,9 +29,6 @@ export const Settings = (props) => {
   };
 
   const handleChange2 = (event) => {
-    // setRefresh(Math.random());
-    // setDeckCount(event.target.value);
-    // setRefresh(Math.random());
     setCount(event.target.value);
     console.log(`local_count=${count}`);
   };
@@ -46,16 +39,7 @@ export const Settings = (props) => {
     console.log(newID.data);
     props.setGameID(newID.data.deck_id);
     props.setSettingsMenu(false);
-    // setDeckCount(count);
   };
-
-  // useEffect(async () => {
-  //   console.log(`deckcount=${deckCount}`);
-  //   const newID = await axios.get(`http://localhost:5000/deck/new/?deck_count=${deckCount}`);
-  //   console.log(newID.data);
-  //   setGameID(newID.data.deck_id);
-  //   console.log(gameID);
-  // }, [deckCount]);
 
   return (
     <>
