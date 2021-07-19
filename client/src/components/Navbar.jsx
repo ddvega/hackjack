@@ -14,19 +14,15 @@ import CreateIcon from '@material-ui/icons/Create';
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { Grid } from '@material-ui/core';
 import { useAuth0 } from '@auth0/auth0-react';
 import logo from '../icons/bj.png';
-
 import { Navlist } from './Navlist';
 import { useStyles } from '../styles/navbarStyles';
-// import { useAuth } from '../store/users/AuthContext';
 
 export const Navbar = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  // const { currentUser } = useAuth();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   // handle opening and closing of app drawer
   const drawerOpen = () => {
@@ -40,7 +36,7 @@ export const Navbar = () => {
   const itemsCommon = [
     {
       id: '0',
-      route: '/settings',
+      route: '/gameplay',
       icon: <VisibilityIcon />,
       text: 'Start Training',
     },

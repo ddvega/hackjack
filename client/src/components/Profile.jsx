@@ -1,8 +1,8 @@
 import React from 'react';
 // import { useAuth0 } from '@auth0/auth0-react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Container, Card, CardMedia, Box } from '@material-ui/core';
-import { useUser } from '../store/UserProvider';
 
 const useStyles = () => {
   const styles = makeStyles((theme) => ({
@@ -18,13 +18,12 @@ const useStyles = () => {
   return styles();
 };
 export const Profile = () => {
-  // const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const styles = useStyles();
-  const { picture, username, email, isAuthenticated } = useUser();
 
-  // if (isLoading) {
-  //   return <div>Loading ...</div>;
-  // }
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
 
   return (
     <>
@@ -42,12 +41,12 @@ export const Profile = () => {
                 p={2}
               >
                 <Box>
-                  <img src={picture} alt="" height="100px" width="100px" />
+                  <img src={user.picture} alt="" height="100px" width="100px" />
                 </Box>
 
                 <Box ml={2}>
-                  <h3>{username}</h3>
-                  <h3>{email}</h3>
+                  <h3>{user.name}</h3>
+                  <h3>{user.email}</h3>
                 </Box>
               </Box>
             </CardMedia>
