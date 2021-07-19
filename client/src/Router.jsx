@@ -9,7 +9,7 @@ import { Users } from './screens/Users';
 import { Navbar } from './components/Navbar';
 import { theme } from './styles/theme';
 import { Account } from './screens/Account';
-import { Chips } from './screens/Chips';
+import { Chips } from './components/Chips';
 import { GamePlay } from './screens/GamePlay';
 
 export const Router = () => {

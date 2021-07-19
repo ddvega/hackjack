@@ -3,6 +3,7 @@ import { Button, Box, CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 import { useStyles } from '../styles/useStyles';
 import { Settings } from '../components/Settings';
+import { Chips } from '../components/Chips';
 
 export const GamePlay = () => {
   const classes = useStyles();
@@ -50,6 +51,7 @@ export const GamePlay = () => {
               <img alt="" src={dealerHand.cards[1].image} />
             </Box>
           </Box>
+          <Chips />
         </>
       )}
       {buttonLoad()}
